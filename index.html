@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <title>mausam</title>
+</head>
+<body>
+    <div class="box">
+        <div class="wave-one"></div>
+        <div class="wave-two"></div>
+        <div class="wave-three"></div>
+        <div id="weathericon"> 
+            <i class="fas fa-sun" style="color: rgb(236, 236, 17);"></i>
+            
+        </div>
+        <div class="info">
+            <h2 class="location"><i class="fas fa-map-marker-alt"></i>{%location%},{%country%}</h2>
+                
+            <p id="date"> wed | mar 20 | 14:56</p>
+            <h1 class="temp1">{%tempvalue%} </h1>
+            <h3 class="tempmin_max">min {%tempmin%} | max {%tempmax%} </h3>
+        </div>
+    </div>
+    <script>
+        var d = new Date();
+var weekday = new Array(7);
+weekday[0] = "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+        const curdate=document.getElementById("date");
+        let weathericon=document.getElementById("weathericon");
+        let temstatus="clouds";
+        const getcurrentday=()=>{
+            let currenttime = new Date();
+            // console.log(currenttime.getDay());
+    let idx1=currenttime.getDay();
+     console.log(weekday[idx1]);
+    let val=weekday[idx1];
+    return val;
+        };
+        const getcurrenttime=()=>{
+            var months=["jan","feb","mar","apr","may","jun","july","aug","sept","oct","nov","dec"];
+            var now=new Date();
+            var idx=now.getMonth();
+            var day=now.getDate();
+            var hours=now.getHours();
+            let mins=now.getMinutes();
+            let period="am";
+            if(hours>11){
+                period="pm";
+                if(hours>12){
+                    hours-=12;
+                }
+               
+            }
+            if(mins<10){
+              mins="0"+mins;      
+                }
+            // let year=currenttime.getFullYear();
+            console.log(months[idx]+"/"+day);
+            console.log(hours+":"+mins+period);
+            return `${months[idx]}  ${day} | ${hours}:${mins}${period}`;
+        };
+        date.innerHTML=getcurrenttime()+"|"+getcurrentday();
+        getcurrenttime();
+        getcurrentday();
+    </script>
+</body>
+
+</html>

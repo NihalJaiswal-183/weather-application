@@ -1,0 +1,2 @@
+api key=f74a831e6376c70154b84133bdb63d07
+api.openweathermap.org/data/2.5/weather?q=Surat&appid=f74a831e6376c70154b84133bdb63d07
